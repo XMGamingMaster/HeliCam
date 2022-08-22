@@ -1045,7 +1045,7 @@ namespace HeliCam
         {
             Vehicle heli = Game.PlayerPed.CurrentVehicle;
 
-            return Entity.Exists(heli) && (Game.PlayerPed.IsInHeli || config.AircraftHashes.Contains(heli.DisplayName.ToLower()) || config.HelicopterHashes.Contains(heli.DisplayName.ToLower()));
+            return Entity.Exists(heli) && (config.AircraftHashes.Contains(heli.DisplayName.ToLower()) || (Game.PlayerPed.IsInHeli && config.HelicopterHashes.Contains(heli.DisplayName.ToLower())));
         }
 
         private void DrawThermal(float x1, float y1, float z1, float x2, float y2, float z2) => DrawBox(x1, y1, z1, x2, y2, z2, 255, 255, 255, 90);
